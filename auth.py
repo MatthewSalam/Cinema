@@ -1,13 +1,14 @@
 import mysql.connector
 import operations
 
+#Allowing the initial userid to be zero
 user_id = 0
 con  = mysql.connector.connect(host = "localhost", user = "root", password = "", database = "cinema_db")
 cursor = con.cursor()
 
 
 def insert_details(user_name, email, password):
-
+    #Appending thhe details into the database
     sql = (f"INSERT INTO `users`(`user_name`, `email`, `password`) VALUES ('{user_name}','{email}','{password}')")
     cursor.execute(sql)
     con.commit()
@@ -15,6 +16,7 @@ def insert_details(user_name, email, password):
     return
 
 def validate_user_details(username,password):
+    #Making sure the user details inputted match the ones in the DB
     sql = (f"SELECT user_name,password FROM `users` WHERE `user_name` = '{username}'")
     cursor.execute(sql)
     # con.commit()
@@ -22,11 +24,13 @@ def validate_user_details(username,password):
     # return True
 
     if username != result[0] or password != result[1] :
+        #Making sure the user inputs correct username or password
        print("Invalid username or password")
        login()
     return
 
 def login():
+    #Allowing the user attempt to login and validating if they are in the database 
     username = input("Enter your username:  ")
     password = input("Enter your password:  ")
     validate_user_details(username,password)
@@ -34,8 +38,8 @@ def login():
     return
 
 def create_account():
+    #Allowing user create his accont in the database if He/She is new
     global user_id
-    
     user_id = user_id + 1
     user_name = input("Enter your username:  ")  
     email = input("Enter your email:   ")
