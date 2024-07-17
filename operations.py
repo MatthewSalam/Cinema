@@ -1,11 +1,13 @@
 import random
 import string
 
+#Making sure all constants are defined and the tickets start off empty
 tickets = []
 max_ticket = 50
 ticketid = 0
 
 def create_new_ticket():
+    #Allowing a registered user create a definite amount of tickets
     global ticketid
     ticketid = ticketid + 1
     if tickets == 50:
@@ -21,12 +23,14 @@ def create_new_ticket():
     return
 
 def view_tickets():
+    #Allowing user(s) to view already made tickets
     print(tickets)
     for ticket in tickets:
         print("Ticketid: ", ticket["ticketid"], "Movie: ", ticket["TicketMovie"], "SerialNumber: ", ticket["SerialNumber"] )
         return
     
 def view_ticket_by_id():
+    #Allowing a specific user to see his own ticket alone
    ticketid = int(input("Enter the ticketid:  "))
    for ticket in tickets:
       if ticket["ticketid"] == ticketid:
@@ -34,6 +38,7 @@ def view_ticket_by_id():
          break
       
 def cancel_ticket_by_id():
+    #Allowing a user cancel his own ticket
    ticketid = int(input("Enter the ticketid:  "))
    for ticket in tickets:
       if ticket["ticketid"] == ticketid:
@@ -42,6 +47,7 @@ def cancel_ticket_by_id():
          break
 
 def tikOperation():
+    #Showing the available operations to a user
   print("Operations Available")
   print("1. Create ticket")
   print("2. View tickets")
