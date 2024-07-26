@@ -47,27 +47,33 @@ def cancel_ticket_by_id():
          break
 
 def tikOperation():
-    #Showing the available operations to a user
-  print("Operations Available")
-  print("1. Create ticket")
-  print("2. View tickets")
-  print("3. View ticket by ID")
-  print("4. Cancel ticket by ID")
-  operation = int(input("Pick an operation: 1, 2, 3 or 4   "))
+  #Showing the available operations to a user
+  while True:
+    print("Operations Available")
+    print("1. Create ticket")
+    print("2. View tickets")
+    print("3. View ticket by ID")
+    print("4. Cancel ticket by ID")
+    operation = int(input("Pick an operation: 1, 2, 3 or 4   "))
 
-  if operation == 1:
-    create_new_ticket()
-  elif operation == 2:
-    view_tickets()
-  elif operation == 3 :
-    view_ticket_by_id()
-  elif operation == 4:
-    cancel_ticket_by_id()
-  else:
-    print("Invalid operation")
-  user_satisfaction = input("Are you satisfied:  Y or N  ").upper()
-  print(user_satisfaction)
-  if user_satisfaction == "Y" or "y":
-     print("Thank you for using our services")
-  else:
-     print("Please provide feedback")
+    if operation == 1:
+      create_new_ticket()
+
+    elif operation == 2:
+      view_tickets()
+
+    elif operation == 3 :
+      view_ticket_by_id()
+
+    elif operation == 4:
+      cancel_ticket_by_id()
+
+    else:
+      print("Invalid operation")
+    user_satisfaction = input("Are you satisfied:  Y or N  ").upper()
+    if user_satisfaction == "Y"  :
+      print(user_satisfaction)
+      print("Thank you for using our services")
+      break
+    else:
+      print("Please provide feedback")

@@ -47,3 +47,22 @@ def create_account():
     insert_details(user_name, email, password)
     print("Account created successfully")
     operations.tikOperation()
+
+def movie_status():
+    movies_available = ["Black Panther", "Infinity War", "Endgame", "The Eternals", "Homecoming", "Far from Home", "No way Home", "Guardians of the Galaxy", "Deadpool and Wolverine", "Antman and the Wasp: Quantumania"]
+    print(f"Movies: ", movies_available)
+    movie = str(input("What movie do you want to watch:  "))
+    if movie in movies_available:
+      print("Movie ticket is available")
+    else:
+      print("Sorry, movie is not available")
+    user_recognition = input("Are you a registered user:  ")
+    if user_recognition == "yes":
+      print("Login")
+      login()
+    elif user_recognition == "no":
+      print("Account creation")
+      create_account()
+    else:
+     print("Input yes or no")
+
